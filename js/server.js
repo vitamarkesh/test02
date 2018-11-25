@@ -7,6 +7,7 @@ const axios = require('axios');
 const periodSec = 15;
 const url = 'http://phisix-api3.appspot.com/stocks.json';
 const refreshEventName = 'refresh';
+const port = 50750;
 
 let data = {};
 
@@ -22,8 +23,8 @@ io.on('connection', socket => {
 	});
 });
 
-http.listen(50750, ()=>{
-	console.log('listening on *:50750');
+http.listen(port, ()=>{
+	console.log('listening on *:'+port);
 });
 
 function bindTimer() {
