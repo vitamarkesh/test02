@@ -8,6 +8,8 @@ const periodSec = 15;
 const url = 'http://phisix-api3.appspot.com/stocks.json';
 const refreshEventName = 'refresh';
 const port = 50750;
+const precisionVolume = 0;
+const precisionAmount = 2;
 
 let data = {};
 
@@ -60,8 +62,8 @@ function clearData(dirtyData) {
 	return dirtyData.map(row=> {
 		return {
 			name: row.name,
-			volume: row.volume.toFixed(),
-			amount: row.price.amount.toFixed(2)
+			volume: row.volume.toFixed(precisionVolume),
+			amount: row.price.amount.toFixed(precisionAmount)
 		};
 	});
 }
